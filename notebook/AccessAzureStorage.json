@@ -1,0 +1,403 @@
+{
+	"name": "AccessAzureStorage",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "SampleSpark",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"8b8f5c90-7ad5-483a-a70f-6cf80ee252ff": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"size": "null",
+										"model": "\"Spectre x360 2-in-1 13.3\"\" 4K Ultra HD Touch-Screen Laptop\"",
+										"price": "1499.98999",
+										"brand": "HP",
+										"processor": "null",
+										"product_id": "1",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "Surface Pro – 12.3\"\"",
+										"price": "1299.98999",
+										"brand": "Microsoft",
+										"processor": "null",
+										"product_id": "2",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "Surface Book 2 - 13.5\"\"",
+										"price": "1499.98999",
+										"brand": "Microsoft",
+										"processor": "null",
+										"product_id": "3",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "XPS 2-in-1 13.3\"\"",
+										"price": "1949.98999",
+										"brand": "Dell",
+										"processor": "null",
+										"product_id": "4",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "Yoga 920 2-in-1 13.9\"\"",
+										"price": "1799.98999",
+										"brand": "Lenovo",
+										"processor": "null",
+										"product_id": "5",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "\"MacBook Pro - 15\"\" Display\"",
+										"price": "2659.98999",
+										"brand": "Apple ",
+										"processor": "null",
+										"product_id": "6",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "\"MacBook Pro - 13\"\" Display\"",
+										"price": "1499.98999",
+										"brand": "Apple ",
+										"processor": "null",
+										"product_id": "7",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "\"MacBook Pro - 15.4\"\" Display\"",
+										"price": "1999.98999",
+										"brand": "Apple ",
+										"processor": "null",
+										"product_id": "8",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "\"MacBook Air - 13.3\"\" Display\"",
+										"price": "999.9899902",
+										"brand": "Apple ",
+										"processor": "null",
+										"product_id": "9",
+										"category": "Laptops ",
+										"display": "null"
+									},
+									{
+										"size": "null",
+										"model": "\"Pavilion x360 2-in-1 14\"\" Touch-Screen Laptop\"",
+										"price": "999.9899902",
+										"brand": "HP",
+										"processor": "null",
+										"product_id": "10",
+										"category": "Laptops ",
+										"display": "null"
+									}
+								],
+								"schema": {
+									"product_id": "string",
+									"category": "string",
+									"brand": "string",
+									"model": "string",
+									"price": "string",
+									"processor": "string",
+									"size": "string",
+									"display": "string"
+								}
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "count",
+									"categoryFieldKeys": [
+										"product_id"
+									],
+									"seriesFieldKeys": [
+										"product_id"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/dd1a86a9-17c0-4b58-bdf7-20ee5cfcf750/resourceGroups/synapse/providers/Microsoft.Synapse/workspaces/wssyn/bigDataPools/SampleSpark",
+				"name": "SampleSpark",
+				"type": "Spark",
+				"endpoint": "https://wssyn.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SampleSpark",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"#blob text file path: wasbs://container01@bdbjblobstorageqingtest.blob.core.windows.net/samplenb/holiday1.txt\r\n",
+					"csv_path=\"wasbs://samhd-2020-06-05t05-43-49-386z@samhdhdistorage.blob.core.windows.net/movie.csv\"\r\n",
+					"df_movies = spark.read.csv(csv_path, header = 'true')\r\n",
+					"df_movies.show()\r\n",
+					""
+				],
+				"attachments": null,
+				"execution_count": 9
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"df_movies.write.saveAsTable(\"Movies2\")"
+				],
+				"attachments": null,
+				"execution_count": 11
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					" \r\n",
+					"df = spark.sql(\"show tables\")\r\n",
+					"df.show(3)\r\n",
+					"df = spark.sql(\"Select * from default.movies2\")\r\n",
+					"df.show(3)\r\n",
+					" "
+				],
+				"attachments": null,
+				"execution_count": 25
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"df = df.repartition(1) # This ensure we'll get a single file during write()\r\n",
+					"df.write.mode(\"overwrite\").csv(\"/University/uni_csvformat\")\r\n",
+					"df.write.mode(\"overwrite\").parquet(\"/University/uni_parquetformat\")"
+				],
+				"attachments": null,
+				"execution_count": 28
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"SELECT\r\n",
+					"    TOP 100 *\r\n",
+					"FROM\r\n",
+					"    OPENROWSET(\r\n",
+					"        BULK 'https://synstorest.dfs.core.windows.net/syn/University/uni_parquetformat/part-00000-2cb73109-1d80-4fbd-9400-8458f732e59e-c000.snappy.parquet',\r\n",
+					"        FORMAT='PARQUET'\r\n",
+					"    ) AS [result]\r\n",
+					""
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-analyze-storage"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"#gen 2  csv file path: abfss://zhaotest@bdbjtestgen2.dfs.core.windows.net/testholiday.csv\r\n",
+					"csv_path=\"abfss://syn@synstorest.dfs.core.windows.net/timesData.csv\"\r\n",
+					"df_University= spark.read.csv(csv_path, header = 'true')\r\n",
+					"df_University.show()\r\n",
+					""
+				],
+				"attachments": null,
+				"execution_count": 12
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"df_University.write.saveAsTable(\"Universities\")"
+				],
+				"attachments": null,
+				"execution_count": 14
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"blob_account_name = \"samdbblob\"\r\n",
+					"blob_container_name = \"myblob\"\r\n",
+					"from pyspark.sql import SparkSession\r\n",
+					"\r\n",
+					"sc = SparkSession.builder.getOrCreate()\r\n",
+					"token_library = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary\r\n",
+					"blob_sas_token = token_library.getConnectionString(\"AzureBlobStorage1\")\r\n",
+					"\r\n",
+					"spark.conf.set(\r\n",
+					"    'fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),\r\n",
+					"    blob_sas_token)\r\n",
+					"df = spark.read.load('wasbs://myblob@samdbblob.blob.core.windows.net/Product.csv', format='csv'\r\n",
+					"## If header exists uncomment line below\r\n",
+					", header=True\r\n",
+					")\r\n",
+					"display(df.limit(10))"
+				],
+				"attachments": null,
+				"execution_count": 30
+			}
+		]
+	}
+}

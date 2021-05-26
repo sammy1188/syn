@@ -1,0 +1,23 @@
+{
+	"name": "DestinationDataset_53k",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "wssyn-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "AWSS3",
+				"fileSystem": "syn"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
